@@ -2,6 +2,7 @@
 // Copyright (c) Vatsal Manot
 //
 
+import CoreGML
 import CorePersistence
 import Foundation
 import NetworkKit
@@ -75,19 +76,7 @@ extension ElevenLabs {
         
         return response.data
     }
-    
-    private func saveDataToTempFile(
-        data: Data
-    ) throws -> URL {
-        let tempDirectoryURL = FileManager.default.temporaryDirectory
-        let randomFilename = "\(UUID().uuidString).mpg"
-        let fileURL = tempDirectoryURL.appendingPathComponent(randomFilename)
         
-        try data.write(to: fileURL)
-        
-        return fileURL
-    }
-    
     public func upload(
         voiceWithName name: String,
         description: String,
